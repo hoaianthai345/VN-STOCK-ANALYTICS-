@@ -1,0 +1,1 @@
+[{"model": "return", "rmse": 0.0059490847030061935}, {"model": "risk", "rmse": 0.006150759754087163}, {"model": "direction", "accuracy": 0.9956634865568084}, {"model": "regime", "accuracy": 0.9984822202948829}]

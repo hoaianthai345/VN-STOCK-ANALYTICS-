@@ -1,0 +1,288 @@
+System Log Initialization...
+
+[16:42:06] Triggering retraining via /Library/Frameworks/Python.framework/Versions/3.13/bin/python3.13...
+Gathering Data (Market + Micro)...
+Loading Market Data...
+Loading Micro Data (Fundamental + Macro)...
+/Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/pipeline/data_loader.py:30: FutureWarning: Constructing PeriodIndex from fields is deprecated. Use PeriodIndex.from_fields instead.
+  df["quarter_date"] = pd.PeriodIndex(
+/Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/pipeline/data_loader.py:30: FutureWarning: Constructing PeriodIndex from fields is deprecated. Use PeriodIndex.from_fields instead.
+  df["quarter_date"] = pd.PeriodIndex(
+/Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/pipeline/data_loader.py:30: FutureWarning: Constructing PeriodIndex from fields is deprecated. Use PeriodIndex.from_fields instead.
+  df["quarter_date"] = pd.PeriodIndex(
+Loading Sentiment Data...
+Merging Market (Daily) and Micro (Quarterly) data...
+Merged Data Shape: (74332, 23)
+Loaded 74332 rows. Generating features...
+/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pandas/core/arraylike.py:399: RuntimeWarning: divide by zero encountered in log
+  result = getattr(ufunc, method)(*inputs, **kwargs)
+/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pandas/core/arraylike.py:399: RuntimeWarning: divide by zero encountered in log
+  result = getattr(ufunc, method)(*inputs, **kwargs)
+/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pandas/core/arraylike.py:399: RuntimeWarning: divide by zero encountered in log
+  result = getattr(ufunc, method)(*inputs, **kwargs)
+Generating targets...
+/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pandas/core/arraylike.py:399: RuntimeWarning: divide by zero encountered in log
+  result = getattr(ufunc, method)(*inputs, **kwargs)
+Selected 18 features: ['ret_1d', 'ret_5d', 'ret_21d', 'vol_5d', 'vol_21d', 'high_low_range', 'close_vs_ma21', 'close_vs_ma63', 'RSI_14', 'ATR_14_pct', 'BB_width', 'GDP', 'ROE', 'ROA', 'P_B', 'LDR', 'CIR', 'Assets_Equity']
+
+Training return model (Target: target_return_63d)...
+/Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/pipeline/train_pipeline.py:130: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  train_df = df.replace([np.inf, -np.inf], np.nan).dropna(subset=features + [target_col])
+Saved return model to /Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/artifacts/return_model.joblib
+
+Training risk model (Target: target_vol_63d)...
+/Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/pipeline/train_pipeline.py:130: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  train_df = df.replace([np.inf, -np.inf], np.nan).dropna(subset=features + [target_col])
+Saved risk model to /Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/artifacts/risk_model.joblib
+
+Training regime model (Target: target_regime_63d)...
+/Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/pipeline/train_pipeline.py:130: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  train_df = df.replace([np.inf, -np.inf], np.nan).dropna(subset=features + [target_col])
+Saved regime model to /Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/artifacts/regime_model.joblib
+
+Training direction model (Target: target_direction_63d)...
+/Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/pipeline/train_pipeline.py:130: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  train_df = df.replace([np.inf, -np.inf], np.nan).dropna(subset=features + [target_col])
+Saved direction model to /Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/artifacts/direction_model.joblib
+Saved comparison data to /Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/artifacts/comparison_data.json
+
+Training Complete.
+
+[16:53:49] Triggering retraining via /Library/Frameworks/Python.framework/Versions/3.13/bin/python3.13...
+Gathering Data (Market + Micro)...
+Loading Market Data...
+Loading Micro Data (Fundamental + Macro)...
+/Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/pipeline/data_loader.py:30: FutureWarning: Constructing PeriodIndex from fields is deprecated. Use PeriodIndex.from_fields instead.
+  df["quarter_date"] = pd.PeriodIndex(
+/Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/pipeline/data_loader.py:30: FutureWarning: Constructing PeriodIndex from fields is deprecated. Use PeriodIndex.from_fields instead.
+  df["quarter_date"] = pd.PeriodIndex(
+/Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/pipeline/data_loader.py:30: FutureWarning: Constructing PeriodIndex from fields is deprecated. Use PeriodIndex.from_fields instead.
+  df["quarter_date"] = pd.PeriodIndex(
+Loading Sentiment Data...
+Merging Market (Daily) and Micro (Quarterly) data...
+Merged Data Shape: (74332, 23)
+Loaded 74332 rows. Generating features...
+/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pandas/core/arraylike.py:399: RuntimeWarning: divide by zero encountered in log
+  result = getattr(ufunc, method)(*inputs, **kwargs)
+/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pandas/core/arraylike.py:399: RuntimeWarning: divide by zero encountered in log
+  result = getattr(ufunc, method)(*inputs, **kwargs)
+/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pandas/core/arraylike.py:399: RuntimeWarning: divide by zero encountered in log
+  result = getattr(ufunc, method)(*inputs, **kwargs)
+Generating targets...
+/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pandas/core/arraylike.py:399: RuntimeWarning: divide by zero encountered in log
+  result = getattr(ufunc, method)(*inputs, **kwargs)
+Selected 18 features: ['ret_1d', 'ret_5d', 'ret_21d', 'vol_5d', 'vol_21d', 'high_low_range', 'close_vs_ma21', 'close_vs_ma63', 'RSI_14', 'ATR_14_pct', 'BB_width', 'GDP', 'ROE', 'ROA', 'P_B', 'LDR', 'CIR', 'Assets_Equity']
+
+Training return model (Target: target_return_21d)...
+/Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/pipeline/train_pipeline.py:132: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  train_df = df.replace([np.inf, -np.inf], np.nan).dropna(subset=features + [target_col])
+Saved return model to /Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/artifacts/return_model.joblib
+  RMSE: 0.0883
+
+Training risk model (Target: target_vol_21d)...
+/Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/pipeline/train_pipeline.py:132: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  train_df = df.replace([np.inf, -np.inf], np.nan).dropna(subset=features + [target_col])
+Saved risk model to /Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/artifacts/risk_model.joblib
+  RMSE: 0.0083
+
+Training regime model (Target: target_regime_21d)...
+/Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/pipeline/train_pipeline.py:132: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  train_df = df.replace([np.inf, -np.inf], np.nan).dropna(subset=features + [target_col])
+Saved regime model to /Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/artifacts/regime_model.joblib
+  Accuracy: 0.4216
+
+Training direction model (Target: target_direction_21d)...
+/Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/pipeline/train_pipeline.py:132: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  train_df = df.replace([np.inf, -np.inf], np.nan).dropna(subset=features + [target_col])
+Saved direction model to /Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/artifacts/direction_model.joblib
+  Accuracy: 0.5452
+Saved comparison data to /Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/artifacts/comparison_data.json
+Saved metrics to /Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/artifacts/metrics.json
+
+Training Complete.
+
+[17:01:04] Triggering retraining via /Library/Frameworks/Python.framework/Versions/3.13/bin/python3.13...
+Gathering Data (Market + Micro)...
+Loading Market Data...
+Loading Micro Data (Fundamental + Macro)...
+/Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/pipeline/data_loader.py:30: FutureWarning: Constructing PeriodIndex from fields is deprecated. Use PeriodIndex.from_fields instead.
+  df["quarter_date"] = pd.PeriodIndex(
+/Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/pipeline/data_loader.py:30: FutureWarning: Constructing PeriodIndex from fields is deprecated. Use PeriodIndex.from_fields instead.
+  df["quarter_date"] = pd.PeriodIndex(
+/Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/pipeline/data_loader.py:30: FutureWarning: Constructing PeriodIndex from fields is deprecated. Use PeriodIndex.from_fields instead.
+  df["quarter_date"] = pd.PeriodIndex(
+Loading Sentiment Data...
+Merging Market (Daily) and Micro (Quarterly) data...
+Merged Data Shape: (74332, 23)
+Loaded 74332 rows. Generating features...
+/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pandas/core/arraylike.py:399: RuntimeWarning: divide by zero encountered in log
+  result = getattr(ufunc, method)(*inputs, **kwargs)
+/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pandas/core/arraylike.py:399: RuntimeWarning: divide by zero encountered in log
+  result = getattr(ufunc, method)(*inputs, **kwargs)
+/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pandas/core/arraylike.py:399: RuntimeWarning: divide by zero encountered in log
+  result = getattr(ufunc, method)(*inputs, **kwargs)
+Generating targets...
+/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pandas/core/arraylike.py:399: RuntimeWarning: divide by zero encountered in log
+  result = getattr(ufunc, method)(*inputs, **kwargs)
+Selected 18 features: ['ret_1d', 'ret_5d', 'ret_21d', 'vol_5d', 'vol_21d', 'high_low_range', 'close_vs_ma21', 'close_vs_ma63', 'RSI_14', 'ATR_14_pct', 'BB_width', 'GDP', 'ROE', 'ROA', 'P_B', 'LDR', 'CIR', 'Assets_Equity']
+
+Training return model (Target: target_return_21d)...
+/Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/pipeline/train_pipeline.py:132: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  train_df = df.replace([np.inf, -np.inf], np.nan).dropna(subset=features + [target_col])
+Saved return model to /Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/artifacts/return_model.joblib
+  RMSE: 0.0883
+
+Training risk model (Target: target_vol_21d)...
+/Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/pipeline/train_pipeline.py:132: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  train_df = df.replace([np.inf, -np.inf], np.nan).dropna(subset=features + [target_col])
+Saved risk model to /Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/artifacts/risk_model.joblib
+  RMSE: 0.0083
+
+Training regime model (Target: target_regime_21d)...
+/Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/pipeline/train_pipeline.py:132: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  train_df = df.replace([np.inf, -np.inf], np.nan).dropna(subset=features + [target_col])
+
+[17:01:10] Triggering retraining via /Library/Frameworks/Python.framework/Versions/3.13/bin/python3.13...
+Saved regime model to /Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/artifacts/regime_model.joblib
+  Accuracy: 0.4216
+
+Training direction model (Target: target_direction_21d)...
+/Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/pipeline/train_pipeline.py:132: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  train_df = df.replace([np.inf, -np.inf], np.nan).dropna(subset=features + [target_col])
+Saved direction model to /Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/artifacts/direction_model.joblib
+  Accuracy: 0.5452
+Gathering Data (Market + Micro)...
+Loading Market Data...
+Loading Micro Data (Fundamental + Macro)...
+/Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/pipeline/data_loader.py:30: FutureWarning: Constructing PeriodIndex from fields is deprecated. Use PeriodIndex.from_fields instead.
+  df["quarter_date"] = pd.PeriodIndex(
+/Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/pipeline/data_loader.py:30: FutureWarning: Constructing PeriodIndex from fields is deprecated. Use PeriodIndex.from_fields instead.
+  df["quarter_date"] = pd.PeriodIndex(
+/Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/pipeline/data_loader.py:30: FutureWarning: Constructing PeriodIndex from fields is deprecated. Use PeriodIndex.from_fields instead.
+  df["quarter_date"] = pd.PeriodIndex(
+Loading Sentiment Data...
+Merging Market (Daily) and Micro (Quarterly) data...
+Merged Data Shape: (74332, 23)
+Loaded 74332 rows. Generating features...
+/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pandas/core/arraylike.py:399: RuntimeWarning: divide by zero encountered in log
+  result = getattr(ufunc, method)(*inputs, **kwargs)
+/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pandas/core/arraylike.py:399: RuntimeWarning: divide by zero encountered in log
+  result = getattr(ufunc, method)(*inputs, **kwargs)
+/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pandas/core/arraylike.py:399: RuntimeWarning: divide by zero encountered in log
+  result = getattr(ufunc, method)(*inputs, **kwargs)
+Saved comparison data to /Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/artifacts/comparison_data.json
+Saved metrics to /Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/artifacts/metrics.json
+
+Training Complete.
+Generating targets...
+/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pandas/core/arraylike.py:399: RuntimeWarning: divide by zero encountered in log
+  result = getattr(ufunc, method)(*inputs, **kwargs)
+Selected 18 features: ['ret_1d', 'ret_5d', 'ret_21d', 'vol_5d', 'vol_21d', 'high_low_range', 'close_vs_ma21', 'close_vs_ma63', 'RSI_14', 'ATR_14_pct', 'BB_width', 'GDP', 'ROE', 'ROA', 'P_B', 'LDR', 'CIR', 'Assets_Equity']
+
+Training return model (Target: target_return_21d)...
+/Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/pipeline/train_pipeline.py:132: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  train_df = df.replace([np.inf, -np.inf], np.nan).dropna(subset=features + [target_col])
+Saved return model to /Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/artifacts/return_model.joblib
+  RMSE: 0.0883
+
+Training risk model (Target: target_vol_21d)...
+/Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/pipeline/train_pipeline.py:132: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  train_df = df.replace([np.inf, -np.inf], np.nan).dropna(subset=features + [target_col])
+Saved risk model to /Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/artifacts/risk_model.joblib
+  RMSE: 0.0083
+
+Training regime model (Target: target_regime_21d)...
+/Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/pipeline/train_pipeline.py:132: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  train_df = df.replace([np.inf, -np.inf], np.nan).dropna(subset=features + [target_col])
+Saved regime model to /Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/artifacts/regime_model.joblib
+  Accuracy: 0.4216
+
+Training direction model (Target: target_direction_21d)...
+/Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/pipeline/train_pipeline.py:132: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  train_df = df.replace([np.inf, -np.inf], np.nan).dropna(subset=features + [target_col])
+Saved direction model to /Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/artifacts/direction_model.joblib
+  Accuracy: 0.5452
+Saved comparison data to /Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/artifacts/comparison_data.json
+Saved metrics to /Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/artifacts/metrics.json
+
+Training Complete.
+
+[19:40:25] Triggering retraining via /Library/Frameworks/Python.framework/Versions/3.13/bin/python3.13...
+--- Starting Training Pipeline ---
+Loading raw data...
+Loading Market Data...
+Loading Micro Data (Fundamental + Macro)...
+Loading Sentiment Data...
+Loading FX data from /Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/data/usd_vnd_full_2015_raw.csv...
+Building features...
+  - Market & Technical features...
+  - Sentiment features...
+  - Macro/FX context features...
+  - Bank Fundamental features...
+Merging datasets...
+Generating Target: log_return_21d
+/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pandas/core/arraylike.py:399: RuntimeWarning: divide by zero encountered in log
+  result = getattr(ufunc, method)(*inputs, **kwargs)
+Features available: 25 / 28
+
+Training return model (Target: target_return)...
+/Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/pipeline/train_pipeline.py:235: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  train_df = df.dropna(subset=cols).replace([np.inf, -np.inf], np.nan).dropna()
+  RMSE: 0.0059
+
+Training risk model (Target: target_risk)...
+/Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/pipeline/train_pipeline.py:235: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  train_df = df.dropna(subset=cols).replace([np.inf, -np.inf], np.nan).dropna()
+  RMSE: 0.0062
+
+Training direction model (Target: target_direction)...
+/Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/pipeline/train_pipeline.py:235: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  train_df = df.dropna(subset=cols).replace([np.inf, -np.inf], np.nan).dropna()
+  Accuracy: 0.9957
+
+Training regime model (Target: target_regime)...
+/Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/pipeline/train_pipeline.py:235: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  train_df = df.dropna(subset=cols).replace([np.inf, -np.inf], np.nan).dropna()
+  Accuracy: 0.9985
+
+Training Pipeline Completed Successfully.
+
+[20:09:39] Triggering retraining via /Library/Frameworks/Python.framework/Versions/3.13/bin/python3.13...
+--- Starting Training Pipeline ---
+Loading raw data...
+Loading Market Data...
+Loading Micro Data (Fundamental + Macro)...
+Loading Sentiment Data...
+Loading FX data from /Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/data/usd_vnd_full_2015_raw.csv...
+Building features...
+  - Market & Technical features...
+  - Sentiment features...
+  - Macro/FX context features...
+  - Bank Fundamental features...
+Merging datasets...
+Generating Target: log_return_21d
+/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/pandas/core/arraylike.py:399: RuntimeWarning: divide by zero encountered in log
+  result = getattr(ufunc, method)(*inputs, **kwargs)
+Features available: 25 / 28
+
+Training return model (Target: target_return)...
+/Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/pipeline/train_pipeline.py:235: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  train_df = df.dropna(subset=cols).replace([np.inf, -np.inf], np.nan).dropna()
+  RMSE: 0.0059
+
+Training risk model (Target: target_risk)...
+/Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/pipeline/train_pipeline.py:235: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  train_df = df.dropna(subset=cols).replace([np.inf, -np.inf], np.nan).dropna()
+  RMSE: 0.0062
+
+Training direction model (Target: target_direction)...
+/Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/pipeline/train_pipeline.py:235: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  train_df = df.dropna(subset=cols).replace([np.inf, -np.inf], np.nan).dropna()
+  Accuracy: 0.9957
+
+Training regime model (Target: target_regime)...
+/Users/anhoaithai/Documents/AHT/2. AREAS/UEH/Kì 5/Data Mining/Project/vn_bank_advisor/pipeline/train_pipeline.py:235: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  train_df = df.dropna(subset=cols).replace([np.inf, -np.inf], np.nan).dropna()
+  Accuracy: 0.9985
+
+Training Pipeline Completed Successfully.

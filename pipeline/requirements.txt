@@ -1,0 +1,13 @@
+requests
+pandas
+numpy
+schedule
+python-dotenv
+sqlalchemy
+psycopg2-binary
+vnstock
+mlflow
+scikit-learn
+xgboost
+joblib
+openpyxl
